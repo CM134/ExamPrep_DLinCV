@@ -17,3 +17,7 @@ def conv_out_shape(input_height, input_width, kernel_height, kernel_width, num_f
     return (((input_height - kernel_height + 2*padding)/stride) + 1,((input_width - kernel_width + 2*padding)/stride) + 1, num_filters)
 
 ## Working on receptive field calculations
+
+# Ex: 12
+
+print(conv_params(16,32,3,3))

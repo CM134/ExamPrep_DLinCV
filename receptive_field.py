@@ -14,7 +14,9 @@ def conv_layer(pixel,kernel_size,stride,padding):
         p_up = pixel[0]
     elif len(pixel) == 2:
         p_low = min(pixel)
-        p_up = max(pixel)   
+        p_up = max(pixel)
+    else:
+        print("List elements should only be of size 1 or 2")
     
     lower = p_low * stride +1 -padding - np.floor(kernel_size/2)
     upper = p_up  * stride +1 -padding + np.floor(kernel_size/2)
@@ -44,7 +46,9 @@ def max_pool(pixel,kernel_size,stride,padding = None):
         p_up = pixel[0]
     elif len(pixel) == 2:
         p_low = min(pixel)
-        p_up = max(pixel)   
+        p_up = max(pixel)
+    else:
+        print("List elements should only be of size 1 or 2")
 
     # for lower
     pool_windows = [] # create all possible pool windows
@@ -85,4 +89,19 @@ print('y:', y_conv)
 
 
 
-# %%
+# %% Ex: 8
+
+# for x
+
+x_pool = max_pool([1],2,2)
+print(x_pool)
+x_conv = conv_layer(x_pool,3,1,0)
+print('x:', x_conv)
+
+# for y 
+# for x
+
+y_pool = max_pool([2],2,2)
+print(y_pool)
+y_conv = conv_layer(y_pool,3,1,0)
+print('y:', y_conv)
